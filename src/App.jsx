@@ -24,13 +24,22 @@ function Ticker() {
 }
 
 export default function App() {
-  // Animación de entrada al hacer scroll.
+  // Animación de entrada al hacer scroll. El CSS deja el contenido
+  // visible por defecto; aquí activamos la animación (.js-anim) y un
+  // observer que revela cada bloque al entrar en pantalla. Si el
+  // observer no existe o tarda, un temporizador de respaldo lo muestra
+  // todo — el sitio nunca se queda en blanco.
   useEffect(() => {
+    const root = document.documentElement;
     const els = document.querySelectorAll('.reveal');
+    const revealAll = () => els.forEach((el) => el.classList.add('is-visible'));
+
     if (!('IntersectionObserver' in window)) {
-      els.forEach((el) => el.classList.add('is-visible'));
+      revealAll();
       return;
     }
+    root.classList.add('js-anim');
+
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -43,7 +52,12 @@ export default function App() {
       { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
     );
     els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+
+    const failsafe = setTimeout(revealAll, 2500);
+    return () => {
+      clearTimeout(failsafe);
+      io.disconnect();
+    };
   }, []);
 
   return (
