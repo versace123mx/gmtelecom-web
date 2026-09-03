@@ -1,0 +1,21 @@
+{
+  "name": "gmtelecom-web",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Sitio informativo de GM Telecom - plataforma de contact center e integracion a medida",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lucide-react": "^0.544.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.4",
+    "vite": "^8.2.0"
+  }
+}
