@@ -5,6 +5,9 @@ node_modules/
 dist/
 dist-ssr/
 
+# Wrangler (estado/cache local del deploy)
+.wrangler/
+
 # Entorno (usar .env.example como plantilla)
 .env
 .env.local

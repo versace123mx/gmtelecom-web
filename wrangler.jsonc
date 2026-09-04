@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "gmtelecom-web",
+  "compatibility_date": "2025-09-01",
+  // Sitio 100% estático: Cloudflare sirve el contenido de ./dist como
+  // "Workers static assets", sin código de Worker. `npm run build` (Vite)
+  // genera esa carpeta.
+  "assets": {
+    "directory": "./dist",
+    // Si alguien entra a una ruta que no existe, se le sirve index.html
+    // (el sitio es de una sola página con anclas).
+    "not_found_handling": "single-page-application"
+  }
+}
