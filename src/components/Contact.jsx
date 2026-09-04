@@ -1,16 +1,58 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { MessageCircle } from 'lucide-react';
-import { FORMSPREE_ID, CONTACT_EMAIL, waLink } from '../data/content.js';
+import {
+  FORMSPREE_ID,
+  CONTACT_EMAIL,
+  FORM_MIN_MS,
+  TURNSTILE_SITE_KEY,
+  waLink,
+} from '../data/content.js';
 
 const ENDPOINT = `https://formspree.io/f/${FORMSPREE_ID}`;
 
+// Carga el script de Cloudflare Turnstile una sola vez (solo si hay site key).
+function useTurnstile() {
+  useEffect(() => {
+    if (!TURNSTILE_SITE_KEY) return;
+    if (document.querySelector('script[data-turnstile]')) return;
+    const s = document.createElement('script');
+    s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+    s.async = true;
+    s.defer = true;
+    s.setAttribute('data-turnstile', '');
+    document.head.appendChild(s);
+  }, []);
+}
+
 export default function Contact() {
-  const [status, setStatus] = useState('idle'); // idle | sending | ok | error
+  const [status, setStatus] = useState('idle'); // idle | sending | ok | error | bot
+  const loadedAt = useRef(Date.now());
+  useTurnstile();
 
   async function handleSubmit(e) {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
+
+    // 1) Honeypot: si estos campos ocultos traen algo, es un bot.
+    if (data.get('_gotcha') || data.get('empresa_web')) {
+      setStatus('ok'); // fingimos éxito para no darle pistas al bot
+      form.reset();
+      return;
+    }
+
+    // 2) Trampa de tiempo: envío demasiado rápido = bot.
+    if (Date.now() - loadedAt.current < FORM_MIN_MS) {
+      setStatus('bot');
+      return;
+    }
+
+    // 3) Turnstile (si está configurado): exige el token del reto.
+    if (TURNSTILE_SITE_KEY && !data.get('cf-turnstile-response')) {
+      setStatus('bot');
+      return;
+    }
+
     setStatus('sending');
     try {
       const res = await fetch(ENDPOINT, {
@@ -51,6 +93,25 @@ export default function Contact() {
           </div>
 
           <form className="contact__form" onSubmit={handleSubmit}>
+            {/* Honeypots: invisibles para personas, tentadores para bots. */}
+            <input
+              type="text"
+              name="_gotcha"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }}
+            />
+            <input
+              type="text"
+              name="empresa_web"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }}
+            />
+            <input type="hidden" name="_subject" value="Nueva solicitud desde gmtelecom.dev" />
+
             <div className="field-row">
               <div className="field">
                 <label htmlFor="nombre">Nombre</label>
@@ -82,6 +143,14 @@ export default function Contact() {
               />
             </div>
 
+            {TURNSTILE_SITE_KEY && (
+              <div
+                className="cf-turnstile"
+                data-sitekey={TURNSTILE_SITE_KEY}
+                data-theme="dark"
+              />
+            )}
+
             <button
               className="btn btn--primary btn--block btn--lg"
               type="submit"
@@ -98,6 +167,11 @@ export default function Contact() {
             {status === 'error' && (
               <div className="form-status form-status--err">
                 No se pudo enviar. Escríbenos por WhatsApp o al correo de arriba.
+              </div>
+            )}
+            {status === 'bot' && (
+              <div className="form-status form-status--err">
+                No pudimos verificar el envío. Vuelve a intentarlo o escríbenos por WhatsApp.
               </div>
             )}
 

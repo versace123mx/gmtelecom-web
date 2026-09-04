@@ -2,11 +2,13 @@ import { useEffect } from 'react';
 import Nav from './components/Nav.jsx';
 import Hero from './components/Hero.jsx';
 import Features from './components/Features.jsx';
+import AiAgents from './components/AiAgents.jsx';
 import Integration from './components/Integration.jsx';
 import HowItWorks from './components/HowItWorks.jsx';
 import Benefits from './components/Benefits.jsx';
 import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
+import ChatWidget from './components/ChatWidget.jsx';
 
 // Franja de marca entre el hero y la plataforma.
 function Ticker() {
@@ -67,12 +69,14 @@ export default function App() {
         <Hero />
         <Ticker />
         <Features />
+        <AiAgents />
         <Integration />
         <HowItWorks />
         <Benefits />
         <Contact />
       </main>
       <Footer />
+      <ChatWidget />
     </>
   );
 }
