@@ -1,0 +1,5 @@
+# https://gmtelecom.dev — política de reporte de vulnerabilidades (RFC 9116)
+Contact: mailto:gmtelecommx@gmail.com
+Expires: 2027-09-03T00:00:00.000Z
+Preferred-Languages: es, en
+Canonical: https://gmtelecom.dev/.well-known/security.txt
