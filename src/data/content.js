@@ -86,7 +86,7 @@ export const FEATURES = [
   },
   {
     icon: 'Bot',
-    title: 'IVR visual y bot de voz (AVR)',
+    title: 'IVR visual y bot de voz',
     text: 'Arma menús de atención arrastrando bloques. Suma un asistente de voz con IA que responde y clasifica antes de pasar al agente.',
   },
   {
@@ -106,12 +106,12 @@ export const FEATURES = [
   },
 ];
 
-// --- Agentes de IA (sección visual, ligada al AVR) ----------------
+// --- Agentes de IA (sección visual, ligada al bot de voz) ----------------
 export const AI_AGENTS = {
   eyebrow: 'Agentes de IA',
   title: 'Agentes de voz con IA que atienden por ti',
   subtitle:
-    'Nuestro AVR pone a trabajar varios agentes de IA en conjunto: contestan, entienden al cliente, resuelven lo simple y pasan al humano solo lo que hace falta — las 24 horas.',
+    'Nuestra plataforma pone a trabajar varios agentes de IA en conjunto: contestan, entienden al cliente, resuelven lo simple y pasan al humano solo lo que hace falta — las 24 horas.',
   capabilities: [
     { icon: 'PhoneCall', title: 'Contesta al instante', text: 'Sin colas ni horarios: cada llamada se atiende desde el primer segundo.' },
     { icon: 'Ear', title: 'Entiende lenguaje natural', text: 'El cliente habla normal; el agente de IA capta la intención y los datos clave.' },
@@ -159,7 +159,7 @@ export const CHAT = {
       key: 'foco',
       question: '¿Qué es lo más importante para ti ahora?',
       options: [
-        { label: 'Bot de voz con IA (AVR)', value: 'agentes de voz con IA', next: 'result' },
+        { label: 'Bot de voz con IA', value: 'agentes de voz con IA', next: 'result' },
         { label: 'WhatsApp + voz en un solo lugar', value: 'omnicanal', next: 'result' },
         { label: 'Grabación y transcripción', value: 'grabación y transcripción', next: 'result' },
         { label: 'Reportes y supervisión', value: 'reportes y supervisión', next: 'result' },
@@ -169,7 +169,7 @@ export const CHAT = {
   // Texto de cierre por foco elegido.
   focoRecomendacion: {
     'agentes de voz con IA':
-      'Con el AVR, varios agentes de IA contestan, resuelven lo repetitivo y pasan al humano solo lo necesario — ideal para bajar tu costo por contacto.',
+      'Con nuestra plataforma, varios agentes de IA contestan, resuelven lo repetitivo y pasan al humano solo lo necesario — ideal para bajar tu costo por contacto.',
     omnicanal:
       'Tus agentes atienden voz y WhatsApp desde una sola bandeja, con la conversación completa por cliente sin importar el canal.',
     'grabación y transcripción':
