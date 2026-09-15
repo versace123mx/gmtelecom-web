@@ -279,7 +279,7 @@ export const COMPANY = {
 // canal — el ícono se muestra igual, pero sin enlace. Cuando crees la
 // cuenta, pega aquí la URL completa (https://...) y queda enlazado solo.
 export const SOCIAL = [
-  { key: 'instagram', label: 'Instagram', url: '' },
+  { key: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/gmtelecommx/' },
   { key: 'x', label: 'X', url: '' },
-  { key: 'facebook', label: 'Facebook', url: '' },
+  { key: 'facebook', label: 'Facebook', url: 'https://www.facebook.com/profile.php?id=61594396046131' },
 ];
