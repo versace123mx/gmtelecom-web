@@ -50,7 +50,7 @@ export const HERO = {
   eyebrow: 'Contact center en la nube',
   title: 'Tu centro de contacto completo, listo para operar.',
   subtitle:
-    'Voz, WhatsApp y redes en una sola bandeja. Marcador predictivo, CRM integrado, grabación con transcripción automática y bots de voz con IA. Y lo adaptamos a la forma en que ya trabaja tu operación.',
+    'Voz, WhatsApp y redes en una sola bandeja. Marcador predictivo, CRM integrado, grabación con transcripción automática y bots de voz. Y lo adaptamos a la forma en que ya trabaja tu operación.',
   primaryCta: 'Solicitar demo',
   secondaryCta: 'Escríbenos por WhatsApp',
 };
@@ -280,6 +280,6 @@ export const COMPANY = {
 // cuenta, pega aquí la URL completa (https://...) y queda enlazado solo.
 export const SOCIAL = [
   { key: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/gmtelecommx/' },
-  { key: 'x', label: 'X', url: '' },
+  { key: 'x', label: 'X', url: 'https://twitter.com/gmtelecommx' },
   { key: 'facebook', label: 'Facebook', url: 'https://www.facebook.com/profile.php?id=61594396046131' },
 ];
