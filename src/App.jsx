@@ -15,7 +15,7 @@ function Ticker() {
   return (
     <div className="ticker">
       <div className="container ticker__inner">
-        {['Voz sobre Asterisk', 'WhatsApp Business', 'Transcripción con IA', 'Bot de voz', 'CRM + API abierta'].map(
+        {['Voz sobre IP', 'WhatsApp Business', 'Transcripción con IA', 'Bot de voz', 'CRM + API abierta'].map(
           (t) => (
             <span key={t}>{t}</span>
           ),

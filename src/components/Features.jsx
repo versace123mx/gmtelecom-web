@@ -29,7 +29,7 @@ export default function Features() {
           <span className="eyebrow">La plataforma</span>
           <h2>Todo lo que necesita tu operación, en un solo lugar</h2>
           <p>
-            Una base sólida de call center con voz sobre Asterisk, más los canales
+            Una base sólida de call center con voz sobre IP, más los canales
             digitales y las herramientas de IA que hoy marcan la diferencia.
           </p>
         </div>
