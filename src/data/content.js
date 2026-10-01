@@ -102,7 +102,7 @@ export const FEATURES = [
   {
     icon: 'ShieldCheck',
     title: 'Control y seguridad',
-    text: 'Roles y permisos por perfil, bitácora de auditoría, lista negra / no-llamar y llaves de API para integraciones.',
+    text: 'Roles y permisos por perfil, bitácora de auditoría, lista negra / no-llamar y llaves de API para integraciones. Toda tu información viaja cifrada, el sitio y también tus llamadas de voz.',
   },
 ];
 
