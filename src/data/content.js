@@ -282,4 +282,8 @@ export const SOCIAL = [
   { key: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/gmtelecommx/' },
   { key: 'x', label: 'X', url: 'https://twitter.com/gmtelecommx' },
   { key: 'facebook', label: 'Facebook', url: 'https://www.facebook.com/profile.php?id=61594396046131' },
+  // TEMPORAL: perfil personal mientras no exista la página de empresa
+  // en LinkedIn (bloqueada por el mínimo de contactos) -- cambiar a
+  // linkedin.com/company/gmtelecom (o la URL real) en cuanto esté lista.
+  { key: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/gmtelecommx-gmtelecommx-3192b3440' },
 ];
