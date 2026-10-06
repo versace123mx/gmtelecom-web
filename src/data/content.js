@@ -10,7 +10,7 @@ export const WHATSAPP_NUMBER = '525643204920'; // 52 (México) + 5643204920
 export const WHATSAPP_MESSAGE = 'Hola GM Telecom, me interesa conocer la plataforma de contact center.';
 
 // Correo al que llegan las solicitudes del formulario.
-export const CONTACT_EMAIL = 'gmtelecommx@gmail.com';
+export const CONTACT_EMAIL = 'contacto@gmtelecom.dev';
 
 // Formulario sin backend propio: Formspree (https://formspree.io).
 //  1) Cuenta de Formspree creada CON gmtelecommx@gmail.com -> ahí llegan.
@@ -67,7 +67,7 @@ export const FEATURES = [
   {
     icon: 'PhoneOutgoing',
     title: 'Marcador inteligente',
-    text: 'Modos predictivo, progresivo y preview. Colas, reglas de reintento, listas y horarios — pensado para cobranza y ventas de alto volumen.',
+    text: 'Modos predictivo, progresivo y preview. Colas, reglas de reintento, listas y horarios, pensado para cobranza y ventas de alto volumen.',
   },
   {
     icon: 'MessagesSquare',
@@ -265,7 +265,7 @@ export const FAQ = [
   },
   {
     q: '¿Las llamadas quedan grabadas?',
-    a: 'Sí, con transcripción automática y reglas de retención configurables según tus políticas y las de tus clientes.',
+    a: 'Sí, podemos grabar, transcribir y almacenar tus llamadas según tu plan. Por cuánto tiempo se conservan depende de tus políticas y las de tus clientes. Si tu operación necesita más, lo ajustamos juntos.',
   },
 ];
 
